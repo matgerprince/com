@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="utf-8" />
+        <title>متجر البرنس الالكتروني</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background:
+                    radial-gradient(ellipse at 10% 5%, rgba(51, 174, 154, 0.22), transparent 35%),
+                    radial-gradient(ellipse at 90% 30%, rgba(81, 104, 177, 0.2), transparent 38%),
+                    linear-gradient(135deg, #101c2c, #172b3a 55%, #213c45);
+                margin: 0;
+                min-height: 100vh;
+                padding: 48px 24px;
+                direction: rtl;
+                color: #f5f7fa;
+            }
+
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            .store-header {
+                margin-bottom: 36px;
+                padding: 30px 20px;
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                border-radius: 22px;
+                background: rgba(255, 255, 255, 0.08);
+                text-align: center;
+                box-shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
+                backdrop-filter: blur(8px);
+            }
+
+            h1 {
+                margin: 0 0 10px;
+                color: #fff;
+                font-size: clamp(28px, 5vw, 40px);
+            }
+
+            .subtitle {
+                margin: 0;
+                color: #d6e4e8;
+                font-size: 17px;
+            }
+
+            .products {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                gap: 22px;
+            }
+
+            .product {
+                overflow: hidden;
+                border: 1px solid rgba(255, 255, 255, 0.65);
+                border-radius: 18px;
+                background: #fff;
+                box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                color: #1a2630;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .product:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+            }
+
+            .product img {
+                display: block;
+                width: 100%;
+                height: 190px;
+                padding: 18px;
+                box-sizing: border-box;
+                object-fit: contain;
+                background: linear-gradient(135deg, #eef6f5, #e8edf6);
+            }
+
+            .product-content {
+                padding: 18px;
+            }
+
+            .product dl {
+                margin: 0 0 14px;
+            }
+
+            .product dt {
+                font-weight: bold;
+                font-size: 22px;
+                margin-bottom: 10px;
+                color: #172b3a;
+            }
+
+            .product dd {
+                margin: 0 0 7px;
+                color: #52616c;
+                font-size: 16px;
+            }
+
+            .whatsapp-button {
+                display: block;
+                margin-top: 16px;
+                padding: 12px 16px;
+                border-radius: 9px;
+                background: #25d366;
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+                transition: background-color 0.2s ease, transform 0.2s ease;
+            }
+
+            .whatsapp-button:hover {
+                background: #1da851;
+                transform: translateY(-1px);
+            }
+
+            .image-placeholder {
+                display: grid;
+                place-items: center;
+                height: 190px;
+                background:
+                    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.42), transparent 22%),
+                    linear-gradient(135deg, #54a89c, #6577a6);
+                color: #fff;
+                font-size: 17px;
+                font-weight: bold;
+            }
+
+            .image-placeholder span {
+                padding: 10px 16px;
+                border: 1px solid rgba(255, 255, 255, 0.65);
+                border-radius: 999px;
+                background: rgba(16, 28, 44, 0.2);
+            }
+
+            @media (max-width: 520px) {
+                body {
+                    padding: 24px 14px;
+                }
+
+                .store-header {
+                    padding: 24px 16px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header class="store-header">
+                <h1>متجر البرنس الالكتروني</h1>
+                <p class="subtitle">للخدمات الرقمية والدفع الالكتروني</p>
+            </header>
+
+            <div class="products">
+                <div class="product">
+                    <img src="art2.jpg" alt="شحن تطبيقات" />
+                    <div class="product-content">
+                        <dl>
+                            <dt> شحن تطبيقات
+                            <dd>متوفر شحن جميع التطبيقات</dd>
+                        </dl>
+                        <a class="whatsapp-button"
+                           href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A9%20%D9%8A%D9%88%20%D8%A7%D8%B3%20%D8%AF%D9%8A%20%D8%AA%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="art4.jpg" alt="شحن العاب" />
+                    <div class="product-content">
+                        <dl>
+                            <dt> شحن العاب</dt>
+                            <dd>شحن جميع العاب الالكترونية</dd>
+
+                        </dl>
+                        <a class="whatsapp-button"
+                           href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B4%D8%A7%D9%85%20%D9%83%D8%A7%D8%B4"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="image-placeholder" role="img" aria-label="مكان صورة المنتج">
+                    <img src="art3.jpg" alt=" زيادة متابعين " />
+                    </div>
+                    <div class="product-content">
+                        <dl>
+                            <dt> زيادة متابعين </dt>
+                            <dd>  متابعين انستغرام وفيس بوك وتيك توك </dd>
+                        </dl>
+                        <a class="whatsapp-button" href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%B1%D9%82%D9%85%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+                </div>
+                                <!---------------------اضافة مربع------------>
+
+                <div class="product">
+                    <div class="image-placeholder" role="img" aria-label="مكان صورة المنتج">
+                        <img src="art5.jpg" alt="  ارقام وهمي
+                    </div>
+                    <div class="product-content">
+                        <dl>
+                            <dt>ارقام وهمي واتساب</dt>
+                            <dd>ارقام وهمية للواتساب</dd>
+                        </dl>
+                        <a class="whatsapp-button" href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%B1%D9%82%D9%85%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+<!---------------------اضافة مربع------------>
+                                    </div>
+
+                <div class="product">
+                    <div class="image-placeholder" role="img" aria-label="مكان صورة المنتج">
+                    <img src="art6.jpg" alt="ارقام تلغرام وهمية
+                    </div>
+                    <div class="product-content">
+                        <dl>
+                            <dt>ارقام تلغرام وهمية</dt>
+                            <dd>ارقام وهمية لتلغرام</dd>
+                        </dl>
+                        <a class="whatsapp-button" href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%B1%D9%82%D9%85%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+                </div>
+
+<!---------------------اضافة مربع------------>
+
+                <div class="product">
+                    <div class="image-placeholder" role="img" aria-label="مكان صورة المنتج">
+                        <img src="art7.png" alt="سحب تاركت" />
+                    </div>
+                    <div class="product-content">
+                        <dl>
+                            <dt>سحب ارباح تاركت</dt>
+                            <dd>اسحب ارباحك من التطبيقات</dd>
+                        </dl>
+                        <a class="whatsapp-button" href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%B1%D9%82%D9%85%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+
+                                    </div>
+
+                <div class="product">
+                    <div class="image-placeholder" role="img" aria-label="مكان صورة المنتج">
+                    <img src="art9.png" alt="usdt" />
+                    </div>
+                    <div class="product-content">
+                        <dl>
+                            <dt>USDT</dt>
+                            <dd>بيع وشراء USDT</dd>
+                        </dl>
+                        <a class="whatsapp-button" href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%B1%D9%82%D9%85%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+                </div>
+
+
+                
+                <div class="product">
+                    <div class="image-placeholder" role="img" aria-label="مكان صورة المنتج">
+                        <img src="art11.png" alt="شام كاش" />
+                    </div>
+                    <div class="product-content">
+                        <dl>
+                            <dt>شام كاش</dt>
+                            <dd>متوفر تصريف شام كاش سوري و دولار </dd>
+                        </dl>
+                        <a class="whatsapp-button" href="https://wa.me/963980930170?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%B1%D9%82%D9%85%D9%8A"
+                           target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+                    </div>
+
+                                    </div>
+
+
+                <!---------------------اضافة مربع------------>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
