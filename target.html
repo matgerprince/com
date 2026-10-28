@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>إدارة تطبيقات سحب تاركت - متجر البرنس</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                font-family: Arial, sans-serif;
+                color: #f5f7fa;
+                background: #101c2c;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                min-height: 100vh;
+                margin: 0;
+                padding: 32px 18px;
+                background:
+                    radial-gradient(ellipse at 10% 5%, rgba(51, 174, 154, 0.22), transparent 35%),
+                    radial-gradient(ellipse at 90% 30%, rgba(81, 104, 177, 0.2), transparent 38%),
+                    linear-gradient(135deg, #101c2c, #172b3a 55%, #213c45);
+            }
+
+            .container {
+                width: min(100%, 960px);
+                margin: 0 auto;
+            }
+
+            header,
+            .manager,
+            .app-card {
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 18px;
+                background: rgba(255, 255, 255, 0.08);
+                box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+            }
+
+            header {
+                margin-bottom: 22px;
+                padding: 24px;
+                text-align: center;
+            }
+
+            h1,
+            h2,
+            p {
+                margin-top: 0;
+            }
+
+            h1 {
+                margin-bottom: 8px;
+                font-size: clamp(26px, 5vw, 36px);
+            }
+
+            header p,
+            .help {
+                margin-bottom: 0;
+                color: #d6e4e8;
+                line-height: 1.7;
+            }
+
+            .back-link {
+                display: inline-block;
+                margin-top: 16px;
+                color: #8ff0cd;
+            }
+
+            .manager {
+                margin-bottom: 24px;
+                padding: 22px;
+            }
+
+            .manager h2,
+            .apps-heading {
+                margin-bottom: 14px;
+            }
+
+            .help {
+                margin-bottom: 18px;
+                font-size: 14px;
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 16px;
+                align-items: end;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 7px;
+                font-weight: bold;
+            }
+
+            input {
+                width: 100%;
+                min-height: 44px;
+                padding: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                border-radius: 9px;
+                background: #172b3a;
+                color: #fff;
+                font: inherit;
+            }
+
+            input:focus-visible,
+            button:focus-visible,
+            a:focus-visible {
+                outline: 2px solid #58d6b0;
+                outline-offset: 2px;
+            }
+
+            button {
+                min-height: 44px;
+                padding: 10px 16px;
+                border: 0;
+                border-radius: 9px;
+                background: #168a65;
+                color: #fff;
+                cursor: pointer;
+                font: inherit;
+                font-weight: bold;
+            }
+
+            button:hover {
+                background: #117454;
+            }
+
+            .delete-button {
+                background: #a63d4b;
+            }
+
+            .delete-button:hover {
+                background: #87313d;
+            }
+
+            .status {
+                min-height: 24px;
+                margin: 14px 0 0;
+                color: #8ff0cd;
+            }
+
+            .apps-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 18px;
+            }
+
+            .app-card {
+                overflow: hidden;
+            }
+
+            .app-image,
+            .image-placeholder {
+                display: grid;
+                width: 100%;
+                height: 190px;
+                place-items: center;
+                object-fit: contain;
+                background: linear-gradient(135deg, #eef6f5, #e8edf6);
+                color: #172b3a;
+            }
+
+            .image-placeholder {
+                background: linear-gradient(135deg, #54a89c, #6577a6);
+                color: #fff;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .app-card form {
+                display: grid;
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .empty-message {
+                color: #d6e4e8;
+            }
+
+            @media (max-width: 520px) {
+                body {
+                    padding: 20px 12px;
+                }
+
+                header,
+                .manager {
+                    padding: 18px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="container">
+            <header>
+                <h1>تطبيقات سحب أرباح تاركت</h1>
+                <p>أضف اسم التطبيق وصورته، أو عدّل التطبيقات الموجودة.</p>
+                <a class="back-link" href="index.html">العودة إلى المتجر</a>
+            </header>
+
+            <section class="manager" aria-labelledby="add-heading">
+                <h2 id="add-heading">إضافة تطبيق</h2>
+                <p class="help">تُحفظ التطبيقات في هذا المتصفح فقط، ولا تظهر تلقائيًا على أجهزة الزوار الآخرين.</p>
+                <form id="add-form">
+                    <div class="form-grid">
+                        <div>
+                            <label for="app-name">اسم التطبيق</label>
+                            <input id="app-name" name="name" type="text" placeholder="مثال: بوبو لايف" maxlength="80" required />
+                        </div>
+                        <div>
+                            <label for="app-image">صورة التطبيق</label>
+                            <input id="app-image" name="image" type="file" accept="image/*" required />
+                        </div>
+                        <button type="submit">إضافة التطبيق</button>
+                    </div>
+                </form>
+                <p class="status" id="status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section aria-labelledby="apps-heading">
+                <h2 class="apps-heading" id="apps-heading">التطبيقات المضافة</h2>
+                <div class="apps-grid" id="apps-list"></div>
+            </section>
+        </main>
+
+        <script>
+            const storageKey = "targetWithdrawalApps";
+            const appsList = document.getElementById("apps-list");
+            const statusMessage = document.getElementById("status");
+            const addForm = document.getElementById("add-form");
+            let apps;
+
+            try {
+                const savedApps = localStorage.getItem(storageKey);
+                apps = savedApps === null ? [{ id: "bobo-live", name: "بوبو لايف", image: "" }] : JSON.parse(savedApps);
+                if (!Array.isArray(apps)) {
+                    throw new Error("Saved application data is not a list.");
+                }
+            } catch (error) {
+                statusMessage.textContent = "تعذر تحميل التطبيقات المحفوظة من هذا المتصفح.";
+                addForm.querySelectorAll("input, button").forEach((control) => {
+                    control.disabled = true;
+                });
+                apps = [];
+            }
+
+            function saveApps(updatedApps) {
+                try {
+                    localStorage.setItem(storageKey, JSON.stringify(updatedApps));
+                    apps = updatedApps;
+                    statusMessage.textContent = "تم حفظ التغييرات في هذا المتصفح.";
+                    renderApps();
+                    return true;
+                } catch (error) {
+                    statusMessage.textContent = "تعذر الحفظ. قد تكون مساحة التخزين ممتلئة؛ جرّب صورة أصغر.";
+                    return false;
+                }
+            }
+
+            function readImage(file, onLoad) {
+                if (!file || !file.type.startsWith("image/")) {
+                    statusMessage.textContent = "اختر ملف صورة صالحًا.";
+                    return;
+                }
+                if (file.size > 2 * 1024 * 1024) {
+                    statusMessage.textContent = "يجب ألا يتجاوز حجم الصورة 2 ميغابايت.";
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.addEventListener("load", () => onLoad(reader.result));
+                reader.addEventListener("error", () => {
+                    statusMessage.textContent = "تعذرت قراءة الصورة المحددة.";
+                });
+                reader.readAsDataURL(file);
+            }
+
+            function createButton(label, className, onClick) {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.textContent = label;
+                if (className) {
+                    button.className = className;
+                }
+                button.addEventListener("click", onClick);
+                return button;
+            }
+
+            function renderApps() {
+                appsList.replaceChildren();
+                if (apps.length === 0) {
+                    const emptyMessage = document.createElement("p");
+                    emptyMessage.className = "empty-message";
+                    emptyMessage.textContent = "لا توجد تطبيقات مضافة حتى الآن.";
+                    appsList.append(emptyMessage);
+                    return;
+                }
+
+                apps.forEach((app) => {
+                    const card = document.createElement("article");
+                    card.className = "app-card";
+
+                    if (app.image) {
+                        const image = document.createElement("img");
+                        image.className = "app-image";
+                        image.src = app.image;
+                        image.alt = app.name;
+                        card.append(image);
+                    } else {
+                        const placeholder = document.createElement("div");
+                        placeholder.className = "image-placeholder";
+                        placeholder.textContent = "اختر صورة للتطبيق";
+                        card.append(placeholder);
+                    }
+
+                    const form = document.createElement("form");
+                    form.addEventListener("submit", (event) => {
+                        event.preventDefault();
+                        const nameInput = form.querySelector('input[name="name"]');
+                        const imageInput = form.querySelector('input[name="image"]');
+                        const name = nameInput.value.trim();
+                        if (!name) {
+                            statusMessage.textContent = "اكتب اسم التطبيق قبل الحفظ.";
+                            return;
+                        }
+
+                        const updateApp = (image) => {
+                            const updatedApps = apps.map((item) =>
+                                item.id === app.id ? { ...item, name, image: image || item.image } : item
+                            );
+                            saveApps(updatedApps);
+                        };
+
+                        if (imageInput.files.length > 0) {
+                            readImage(imageInput.files[0], updateApp);
+                        } else {
+                            updateApp("");
+                        }
+                    });
+
+                    const nameLabel = document.createElement("label");
+                    nameLabel.textContent = "اسم التطبيق";
+                    const nameInput = document.createElement("input");
+                    nameInput.name = "name";
+                    nameInput.type = "text";
+                    nameInput.maxLength = 80;
+                    nameInput.required = true;
+                    nameInput.value = app.name;
+                    nameLabel.append(nameInput);
+
+                    const imageLabel = document.createElement("label");
+                    imageLabel.textContent = "تغيير الصورة";
+                    const imageInput = document.createElement("input");
+                    imageInput.name = "image";
+                    imageInput.type = "file";
+                    imageInput.accept = "image/*";
+                    imageLabel.append(imageInput);
+
+                    form.append(
+                        nameLabel,
+                        imageLabel,
+                        createButton("حفظ التعديلات", "", () => form.requestSubmit()),
+                        createButton("حذف التطبيق", "delete-button", () => {
+                            saveApps(apps.filter((item) => item.id !== app.id));
+                        })
+                    );
+                    card.append(form);
+                    appsList.append(card);
+                });
+            }
+
+            addForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const nameInput = addForm.elements.namedItem("name");
+                const imageInput = addForm.elements.namedItem("image");
+                const name = nameInput.value.trim();
+                if (!name) {
+                    statusMessage.textContent = "اكتب اسم التطبيق قبل الإضافة.";
+                    return;
+                }
+                if (imageInput.files.length === 0) {
+                    statusMessage.textContent = "اختر صورة للتطبيق قبل الإضافة.";
+                    return;
+                }
+
+                readImage(imageInput.files[0], (image) => {
+                    const newApp = { id: `${Date.now()}-${Math.random()}`, name, image };
+                    if (saveApps([...apps, newApp])) {
+                        addForm.reset();
+                    }
+                });
+            });
+
+            renderApps();
+        </script>
+    </body>
+</html>
